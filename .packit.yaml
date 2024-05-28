@@ -1,0 +1,32 @@
+packages:
+  rust-metrics:
+    # https://github.com/metrics-rs/metrics
+    paths: [ rust-metrics ]
+    specfile_path: rust-metrics.spec
+    upstream_package_name: metrics
+    downstream_package_name: rust-metrics
+    actions: &Actions-Package-rust2rpm
+      fix-spec-file:
+        - sh -c 'rust2rpm ${PACKIT_UPSTREAM_PACKAGE_NAME}'
+      create-archive:
+        - sh -c 'spectool -g -s0 ${PACKIT_DOWNSTREAM_PACKAGE_NAME}.spec'
+        - sh -c 'echo ${PACKIT_UPSTREAM_PACKAGE_NAME}-${PACKIT_PROJECT_VERSION}.crate'
+      get-current-version:
+        - sh -c 'rpmspec -q --qf "%{Version}" --srpm ${PACKIT_DOWNSTREAM_PACKAGE_NAME}.spec'
+  rust-metrics-exporter-prometheus:
+    # https://github.com/metrics-rs/metrics
+    paths: [ rust-metrics-exporter-prometheus ]
+    specfile_path: rust-metrics-exporter-prometheus.spec
+    upstream_package_name: metrics-exporter-prometheus
+    downstream_package_name: rust-metrics-exporter-prometheus
+    actions: *Actions-Package-rust2rpm
+
+srpm_build_deps:
+  - rust2rpm
+
+jobs:
+  - job: copr_build
+    trigger: commit
+    update_release: false
+    targets:
+      - fedora-rawhide
