@@ -1,0 +1,6 @@
+[[package.extra-patches]]
+comments = [
+    "Relax strict dependency on rayon",
+]
+file = "rust-average-0.15.1-Relax_strict_dependencies.diff"
+number = 10

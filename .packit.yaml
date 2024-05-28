@@ -36,6 +36,49 @@ packages:
     upstream_package_name: quanta
     downstream_package_name: rust-quanta
     actions: *Actions-Package-rust2rpm
+  rust-average:
+    # https://github.com/vks/average
+    paths: [ rust-average ]
+    specfile_path: rust-average.spec
+    upstream_package_name: average
+    downstream_package_name: rust-average
+    actions: *Actions-Package-rust2rpm
+  rust-raw-cpuid:
+    # https://github.com/gz/rust-cpuid
+    paths: [ rust-raw-cpuid ]
+    specfile_path: rust-raw-cpuid.spec
+    upstream_package_name: raw-cpuid
+    downstream_package_name: rust-raw-cpuid
+    actions: *Actions-Package-rust2rpm
+  rust-ndarray:
+    # https://github.com/rust-ndarray/ndarray
+    paths: [ rust-ndarray ]
+    specfile_path: rust-ndarray.spec
+    upstream_package_name: ndarray
+    downstream_package_name: rust-ndarray
+    actions: *Actions-Package-rust2rpm
+  rust-ndarray-stats:
+    # https://github.com/rust-ndarray/ndarray-stats
+    paths: [ rust-ndarray-stats ]
+    specfile_path: rust-ndarray-stats.spec
+    upstream_package_name: ndarray-stats
+    downstream_package_name: rust-ndarray-stats
+    actions: *Actions-Package-rust2rpm
+  rust-sketches-ddsketch:
+    # https://github.com/mheffner/rust-sketches-ddsketch
+    paths: [ rust-sketches-ddsketch ]
+    specfile_path: rust-sketches-ddsketch.spec
+    upstream_package_name: sketches-ddsketch
+    downstream_package_name: rust-sketches-ddsketch
+    actions: *Actions-Package-rust2rpm
+
+  # Waiting to be updated
+  rust-ordered-float:
+    paths: [ rust-ordered-float ]
+    specfile_path: rust-ordered-float.spec
+    upstream_package_name: ordered-float
+    downstream_package_name: rust-ordered-float
+    actions: *Actions-Package-rust2rpm
 
 srpm_build_deps:
   - rust2rpm

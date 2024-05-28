@@ -1,0 +1,2 @@
+[package]
+summary = "Library to parse the x86 CPUID instruction"
