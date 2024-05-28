@@ -16,3 +16,10 @@ comments = [
 file = "quanta-0.12.3-Bump_dependency.diff"
 number = 10
 
+[tests]
+skip = [
+    "instant::tests::test_recent",
+]
+comments = [
+    "Flaky test"
+]

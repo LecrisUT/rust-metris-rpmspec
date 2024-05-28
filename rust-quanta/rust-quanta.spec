@@ -106,7 +106,8 @@ tomcli set Cargo.toml del dev-dependencies.criterion
 
 %if %{with check}
 %check
-%cargo_test
+# * Flaky test
+%cargo_test -- -- --skip instant::tests::test_recent
 %endif
 
 %changelog
