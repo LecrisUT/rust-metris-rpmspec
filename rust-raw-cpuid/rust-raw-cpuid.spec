@@ -15,8 +15,8 @@ Summary:        Library to parse the x86 CPUID instruction
 License:        MIT
 URL:            https://crates.io/crates/raw-cpuid
 Source:         %{crates_source}
-# * Remove termimad dependency and display feature
-Patch10:       rust-raw-cpuid-11.0.2-Remove_unused_dependency.diff
+# Manually created patch for downstream crate metadata changes
+Patch:          raw-cpuid-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 26
 
@@ -53,18 +53,6 @@ This package contains library source intended for building other packages which
 use the "default" feature of the "%{crate}" crate.
 
 %files       -n %{name}+default-devel
-%ghost %{crate_instdir}/Cargo.toml
-
-%package     -n %{name}+clap-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+clap-devel %{_description}
-
-This package contains library source intended for building other packages which
-use the "clap" feature of the "%{crate}" crate.
-
-%files       -n %{name}+clap-devel
 %ghost %{crate_instdir}/Cargo.toml
 
 %package     -n %{name}+serde-devel
@@ -127,34 +115,22 @@ use the "std" feature of the "%{crate}" crate.
 %files       -n %{name}+std-devel
 %ghost %{crate_instdir}/Cargo.toml
 
-%package     -n %{name}+termimad-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+termimad-devel %{_description}
-
-This package contains library source intended for building other packages which
-use the "termimad" feature of the "%{crate}" crate.
-
-%files       -n %{name}+termimad-devel
-%ghost %{crate_instdir}/Cargo.toml
-
 %prep
 %autosetup -n %{crate}-%{version} -p1
 %cargo_prep
 
 %generate_buildrequires
-%cargo_generate_buildrequires -f cli
+%cargo_generate_buildrequires
 
 %build
-%cargo_build -f cli
+%cargo_build
 
 %install
-%cargo_install -f cli
+%cargo_install
 
 %if %{with check}
 %check
-%cargo_test -f cli
+%cargo_test
 %endif
 
 %changelog

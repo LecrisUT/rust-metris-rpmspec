@@ -49,7 +49,9 @@ packages:
     specfile_path: rust-raw-cpuid.spec
     upstream_package_name: raw-cpuid
     downstream_package_name: rust-raw-cpuid
-    actions: *Actions-Package-rust2rpm
+    actions: &Actions-Package-no-rust2rpm
+      <<: *Actions-Package-rust2rpm
+      fix-spec-file: []
   rust-ndarray:
     # https://github.com/rust-ndarray/ndarray
     paths: [ rust-ndarray ]
