@@ -14,6 +14,8 @@ URL:            https://crates.io/crates/quanta
 Source:         %{crates_source}
 # Automatically generated patch to strip dependencies and normalize metadata
 Patch:          quanta-fix-metadata-auto.diff
+# * Bump average dependency
+Patch10:       quanta-0.12.3-Bump_dependency.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
 BuildRequires:  tomcli

@@ -8,3 +8,11 @@ post = [
     "# Do not depend on criterion; it is needed only for benchmarks.",
     "tomcli set Cargo.toml del dev-dependencies.criterion",
 ]
+
+[[package.extra-patches]]
+comments = [
+    "Bump average dependency",
+]
+file = "quanta-0.12.3-Bump_dependency.diff"
+number = 10
+
