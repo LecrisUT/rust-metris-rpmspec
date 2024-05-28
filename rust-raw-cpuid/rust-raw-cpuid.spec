@@ -118,6 +118,8 @@ use the "std" feature of the "%{crate}" crate.
 %prep
 %autosetup -n %{crate}-%{version} -p1
 %cargo_prep
+# Remove unused cli files
+rm -r src/bin
 
 %generate_buildrequires
 %cargo_generate_buildrequires

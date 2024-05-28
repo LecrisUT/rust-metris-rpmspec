@@ -1,5 +1,5 @@
 --- raw-cpuid-11.0.2/Cargo.toml	1970-01-01T00:00:01+00:00
-+++ raw-cpuid-11.0.2/Cargo.toml	2024-05-28T17:37:01.449943+00:00
++++ raw-cpuid-11.0.2/Cargo.toml	2024-05-28T18:01:14.469960+00:00
 @@ -32,11 +32,6 @@
  license = "MIT"
  repository = "https://github.com/gz/rust-cpuid"
@@ -24,7 +24,7 @@
  
  [dependencies.serde]
  version = "1.0"
-@@ -63,21 +53,7 @@
+@@ -63,21 +53,9 @@
  version = "1.0"
  optional = true
  
@@ -43,6 +43,8 @@
 -    "serde_json",
 -    "serialize",
 -]
++cli = []
++display = []
  serialize = [
      "serde",
      "serde_derive",

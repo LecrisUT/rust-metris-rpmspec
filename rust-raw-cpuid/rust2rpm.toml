@@ -1,3 +1,15 @@
 [package]
 summary = "Library to parse the x86 CPUID instruction"
 cargo-install-bin = false
+
+[features]
+hide = [
+    "cli",
+    "display",
+]
+
+[scripts.prep]
+post = [
+    "# Remove unused cli files",
+    "rm -r src/bin",
+]
