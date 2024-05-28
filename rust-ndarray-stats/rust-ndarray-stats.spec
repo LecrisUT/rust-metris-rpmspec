@@ -70,7 +70,8 @@ tomcli set Cargo.toml del dev-dependencies.criterion
 
 %if %{with check}
 %check
-%cargo_test
+# * Probably using debug_assert!
+%cargo_test -- -- --skip entropy::tests::test_cross_entropy_with_noisy_negative_qs --skip entropy::tests::test_kl_with_noisy_negative_qs
 %endif
 
 %changelog

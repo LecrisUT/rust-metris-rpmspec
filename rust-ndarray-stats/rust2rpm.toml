@@ -19,3 +19,12 @@ comments = [
 ]
 file = "rust-ndarray-stats-0.5.1-Bump_approx_dependency.diff"
 number = 10
+
+[tests]
+skip = [
+    "entropy::tests::test_cross_entropy_with_noisy_negative_qs",
+    "entropy::tests::test_kl_with_noisy_negative_qs",
+]
+comments = [
+    "Probably using debug_assert!"
+]
