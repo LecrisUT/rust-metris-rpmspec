@@ -1,7 +1,11 @@
 --- sketches-ddsketch-0.2.2/Cargo.toml	1970-01-01T00:00:01+00:00
-+++ sketches-ddsketch-0.2.2/Cargo.toml	2024-05-28T16:33:43.823932+00:00
-@@ -32,7 +32,7 @@
- version = "0.7.2"
++++ sketches-ddsketch-0.2.2/Cargo.toml	2024-05-28T17:04:29.334671+00:00
+@@ -29,10 +29,10 @@
+ version = "0.5.1"
+
+ [dev-dependencies.rand]
+-version = "0.7.2"
++version = "0.8.5"
  
  [dev-dependencies.rand_distr]
 -version = "0.2.2"
