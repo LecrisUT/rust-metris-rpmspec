@@ -12,6 +12,8 @@ Summary:        Helper types/functions used by the metrics ecosystem
 License:        MIT
 URL:            https://crates.io/crates/metrics-util
 Source:         %{crates_source}
+# * Relax predicates dependencies
+Patch10:       rust-metrics-util-0.17.0-Relax_dependency.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
 BuildRequires:  tomcli

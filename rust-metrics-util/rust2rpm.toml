@@ -8,3 +8,11 @@ post = [
     "# Do not depend on criterion; it is needed only for benchmarks.",
     "tomcli set Cargo.toml del dev-dependencies.criterion",
 ]
+
+[[package.extra-patches]]
+comments = [
+    "Relax predicates dependencies",
+]
+file = "rust-metrics-util-0.17.0-Relax_dependency.diff"
+number = 10
+

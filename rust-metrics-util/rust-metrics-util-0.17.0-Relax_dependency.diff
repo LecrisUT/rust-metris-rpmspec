@@ -1,0 +1,15 @@
+--- metrics-util-0.17.0/Cargo.toml	1970-01-01T00:00:01+00:00
++++ metrics-util-0.17.0/Cargo.toml	2024-05-28T19:02:31.237507+00:00
+@@ -156,10 +156,10 @@
+ version = "4.2"
+ 
+ [dev-dependencies.predicates-core]
+-version = "=1.0.5"
++version = "1.0.5"
+ 
+ [dev-dependencies.predicates-tree]
+-version = "=1.0.7"
++version = "1.0.7"
+ 
+ [dev-dependencies.quickcheck]
+ version = "1"
