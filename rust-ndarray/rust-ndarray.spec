@@ -12,6 +12,9 @@ Summary:        N-dimensional array for general elements and for numerics
 License:        MIT OR Apache-2.0
 URL:            https://crates.io/crates/ndarray
 Source:         %{crates_source}
+# * https://github.com/rust-ndarray/ndarray/pull/1380
+# * Fix approx dependency
+Patch10:       rust-ndarray-0.15.6-Switch_approx_dependency.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
 
@@ -98,18 +101,6 @@ This package contains library source intended for building other packages which
 use the "cblas-sys" feature of the "%{crate}" crate.
 
 %files       -n %{name}+cblas-sys-devel
-%ghost %{crate_instdir}/Cargo.toml
-
-%package     -n %{name}+docs-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+docs-devel %{_description}
-
-This package contains library source intended for building other packages which
-use the "docs" feature of the "%{crate}" crate.
-
-%files       -n %{name}+docs-devel
 %ghost %{crate_instdir}/Cargo.toml
 
 %package     -n %{name}+libc-devel

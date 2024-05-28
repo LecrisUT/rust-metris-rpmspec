@@ -1,0 +1,12 @@
+[features]
+hide = [
+    "docs",
+]
+
+[[package.extra-patches]]
+comments = [
+    "https://github.com/rust-ndarray/ndarray/pull/1380",
+    "Fix approx dependency",
+]
+file = "rust-ndarray-0.15.6-Switch_approx_dependency.diff"
+number = 10
