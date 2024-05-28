@@ -1,0 +1,6 @@
+[[package.extra-patches]]
+comments = [
+    "Bump rand_distr dependency",
+]
+file = "rust-sketches-ddsketch-0.2.2-Bump_dependency.diff"
+number = 10
