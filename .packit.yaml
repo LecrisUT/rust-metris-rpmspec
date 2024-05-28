@@ -64,12 +64,33 @@ packages:
     upstream_package_name: ndarray-stats
     downstream_package_name: rust-ndarray-stats
     actions: *Actions-Package-rust2rpm
+  rust-ndarray-rand:
+    # https://github.com/rust-ndarray/ndarray
+    paths: [ rust-ndarray-rand ]
+    specfile_path: rust-ndarray-rand.spec
+    upstream_package_name: ndarray-rand
+    downstream_package_name: rust-ndarray-rand
+    actions: *Actions-Package-rust2rpm
   rust-sketches-ddsketch:
     # https://github.com/mheffner/rust-sketches-ddsketch
     paths: [ rust-sketches-ddsketch ]
     specfile_path: rust-sketches-ddsketch.spec
     upstream_package_name: sketches-ddsketch
     downstream_package_name: rust-sketches-ddsketch
+    actions: *Actions-Package-rust2rpm
+  rust-defmac:
+    # https://github.com/bluss/defmac
+    paths: [ rust-defmac ]
+    specfile_path: rust-defmac.spec
+    upstream_package_name: defmac
+    downstream_package_name: rust-defmac
+    actions: *Actions-Package-rust2rpm
+  rust-core_affinity:
+    # https://github.com/Elzair/core_affinity_rs
+    paths: [ rust-core_affinity ]
+    specfile_path: rust-core_affinity.spec
+    upstream_package_name: core_affinity
+    downstream_package_name: rust-core_affinity
     actions: *Actions-Package-rust2rpm
 
   # Waiting to be updated

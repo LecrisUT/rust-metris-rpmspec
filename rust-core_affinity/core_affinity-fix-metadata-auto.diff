@@ -1,0 +1,12 @@
+--- core_affinity-0.8.1/Cargo.toml	1970-01-01T00:00:01+00:00
++++ core_affinity-0.8.1/Cargo.toml	2024-05-28T15:51:30.707773+00:00
+@@ -33,9 +33,3 @@
+ [target."cfg(any(target_os = \"android\", target_os = \"linux\", target_os = \"macos\", target_os = \"freebsd\"))".dependencies.libc]
+ version = "^0.2.30"
+ 
+-[target."cfg(target_os = \"windows\")".dependencies.winapi]
+-version = "^0.3.9"
+-features = [
+-    "processthreadsapi",
+-    "winbase",
+-]
