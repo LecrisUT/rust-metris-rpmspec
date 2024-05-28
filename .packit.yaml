@@ -28,6 +28,15 @@ packages:
     downstream_package_name: rust-metrics-util
     actions: *Actions-Package-rust2rpm
 
+  ## Dependencies
+  rust-quanta:
+    # https://github.com/metrics-rs/quanta
+    paths: [ rust-quanta ]
+    specfile_path: rust-quanta.spec
+    upstream_package_name: quanta
+    downstream_package_name: rust-quanta
+    actions: *Actions-Package-rust2rpm
+
 srpm_build_deps:
   - rust2rpm
 
