@@ -20,6 +20,13 @@ packages:
     upstream_package_name: metrics-exporter-prometheus
     downstream_package_name: rust-metrics-exporter-prometheus
     actions: *Actions-Package-rust2rpm
+  rust-metrics-util:
+    # https://github.com/metrics-rs/metrics
+    paths: [ rust-metrics-util ]
+    specfile_path: rust-metrics-util.spec
+    upstream_package_name: metrics-util
+    downstream_package_name: rust-metrics-util
+    actions: *Actions-Package-rust2rpm
 
 srpm_build_deps:
   - rust2rpm
