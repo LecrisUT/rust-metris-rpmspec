@@ -15,6 +15,8 @@ Summary:        Library to parse the x86 CPUID instruction
 License:        MIT
 URL:            https://crates.io/crates/raw-cpuid
 Source:         %{crates_source}
+# * Remove termimad dependency and display feature
+Patch10:       rust-raw-cpuid-11.0.2-Remove_unused_dependency.diff
 
 BuildRequires:  cargo-rpm-macros >= 26
 
@@ -63,18 +65,6 @@ This package contains library source intended for building other packages which
 use the "clap" feature of the "%{crate}" crate.
 
 %files       -n %{name}+clap-devel
-%ghost %{crate_instdir}/Cargo.toml
-
-%package     -n %{name}+display-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+display-devel %{_description}
-
-This package contains library source intended for building other packages which
-use the "display" feature of the "%{crate}" crate.
-
-%files       -n %{name}+display-devel
 %ghost %{crate_instdir}/Cargo.toml
 
 %package     -n %{name}+serde-devel

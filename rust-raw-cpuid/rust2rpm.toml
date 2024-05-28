@@ -7,3 +7,11 @@ hide = [
     "cli",
     "display",
 ]
+
+[[package.extra-patches]]
+comments = [
+    "Remove termimad dependency and display feature",
+]
+file = "rust-raw-cpuid-11.0.2-Remove_unused_dependency.diff"
+number = 10
+
