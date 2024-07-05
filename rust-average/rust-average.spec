@@ -12,8 +12,10 @@ Summary:        Calculate statistics iteratively
 License:        MIT OR Apache-2.0
 URL:            https://crates.io/crates/average
 Source:         %{crates_source}
-# * Relax strict dependency on rayon
-Patch10:       rust-average-0.15.1-Relax_strict_dependencies.diff
+# Manually created patch for downstream crate metadata changes
+# * - Relax strict dependency on rayon
+# * - Bump sketches-ddsketch dependency
+Patch:          average-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
 

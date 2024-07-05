@@ -5,15 +5,13 @@
 %global crate sketches-ddsketch
 
 Name:           rust-sketches-ddsketch
-Version:        0.2.2
+Version:        0.3.0
 Release:        %autorelease
 Summary:        Direct port of the Golang DDSketch implementation
 
 License:        Apache-2.0
 URL:            https://crates.io/crates/sketches-ddsketch
 Source:         %{crates_source}
-# * Bump rand_distr dependency
-Patch10:       rust-sketches-ddsketch-0.2.2-Bump_dependency.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
 

@@ -1,5 +1,5 @@
 --- quanta-0.12.3/Cargo.toml	1970-01-01T00:00:01+00:00
-+++ quanta-0.12.3/Cargo.toml	2024-05-28T18:12:57.351825+00:00
++++ quanta-0.12.3/Cargo.toml	2024-07-05T12:30:39.721330+00:00
 @@ -53,7 +53,7 @@
  default-features = false
  

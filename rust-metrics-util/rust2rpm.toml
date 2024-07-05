@@ -9,10 +9,9 @@ post = [
     "tomcli set Cargo.toml del dev-dependencies.criterion",
 ]
 
-[[package.extra-patches]]
-comments = [
-    "Relax predicates dependencies",
+[package]
+cargo-toml-patch-comments = [
+    "- Relax predicates dependencies",
+    "- Bump sketches-ddsketch dependency",
 ]
-file = "rust-metrics-util-0.17.0-Relax_dependency.diff"
-number = 10
 

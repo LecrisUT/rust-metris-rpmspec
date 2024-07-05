@@ -9,12 +9,10 @@ post = [
     "tomcli set Cargo.toml del dev-dependencies.criterion",
 ]
 
-[[package.extra-patches]]
-comments = [
-    "Bump average dependency",
+[package]
+cargo-toml-patch-comments = [
+    "- Bump average dependency",
 ]
-file = "quanta-0.12.3-Bump_dependency.diff"
-number = 10
 
 [tests]
 skip = [

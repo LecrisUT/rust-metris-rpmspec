@@ -13,9 +13,10 @@ Summary:        Statistical routines for ArrayBase
 License:        MIT OR Apache-2.0
 URL:            https://crates.io/crates/ndarray-stats
 Source:         %{crates_source}
-# * https://github.com/rust-ndarray/ndarray-stats/issues/96
-# * Bump approx dependency
-Patch10:       rust-ndarray-stats-0.5.1-Bump_approx_dependency.diff
+# Manually created patch for downstream crate metadata changes
+# * - Bump approx dependency
+# *   https://github.com/rust-ndarray/ndarray-stats/issues/96
+Patch:          ndarray-stats-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
 BuildRequires:  tomcli

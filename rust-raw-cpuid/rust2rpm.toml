@@ -1,6 +1,10 @@
 [package]
 summary = "Library to parse the x86 CPUID instruction"
 cargo-install-bin = false
+cargo-toml-patch-comments = [
+    "- Remove clashing binary package",
+    "- Remove cli and display features",
+]
 
 [features]
 hide = [

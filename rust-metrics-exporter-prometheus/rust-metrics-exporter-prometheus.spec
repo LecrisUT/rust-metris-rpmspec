@@ -5,7 +5,7 @@
 %global crate metrics-exporter-prometheus
 
 Name:           rust-metrics-exporter-prometheus
-Version:        0.15.0
+Version:        0.15.1
 Release:        %autorelease
 Summary:        Metrics-compatible exporter for sending metrics to Prometheus
 
@@ -119,16 +119,16 @@ use the "hyper" feature of the "%{crate}" crate.
 %files       -n %{name}+hyper-devel
 %ghost %{crate_instdir}/Cargo.toml
 
-%package     -n %{name}+hyper-tls-devel
+%package     -n %{name}+hyper-rustls-devel
 Summary:        %{summary}
 BuildArch:      noarch
 
-%description -n %{name}+hyper-tls-devel %{_description}
+%description -n %{name}+hyper-rustls-devel %{_description}
 
 This package contains library source intended for building other packages which
-use the "hyper-tls" feature of the "%{crate}" crate.
+use the "hyper-rustls" feature of the "%{crate}" crate.
 
-%files       -n %{name}+hyper-tls-devel
+%files       -n %{name}+hyper-rustls-devel
 %ghost %{crate_instdir}/Cargo.toml
 
 %package     -n %{name}+hyper-util-devel

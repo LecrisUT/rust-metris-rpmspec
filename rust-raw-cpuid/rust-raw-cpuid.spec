@@ -16,6 +16,8 @@ License:        MIT
 URL:            https://crates.io/crates/raw-cpuid
 Source:         %{crates_source}
 # Manually created patch for downstream crate metadata changes
+# * - Remove clashing binary package
+# * - Remove cli and display features
 Patch:          raw-cpuid-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 26

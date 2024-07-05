@@ -12,9 +12,10 @@ Summary:        N-dimensional array for general elements and for numerics
 License:        MIT OR Apache-2.0
 URL:            https://crates.io/crates/ndarray
 Source:         %{crates_source}
-# * https://github.com/rust-ndarray/ndarray/pull/1380
-# * Fix approx dependency
-Patch10:       rust-ndarray-0.15.6-Switch_approx_dependency.diff
+# Manually created patch for downstream crate metadata changes
+# * - Bump approx dependency
+# *   https://github.com/rust-ndarray/ndarray-stats/issues/96
+Patch:          ndarray-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
 

@@ -1,5 +1,5 @@
 --- average-0.15.1/Cargo.toml	1970-01-01T00:00:01+00:00
-+++ average-0.15.1/Cargo.toml	2024-05-28T13:58:25.158870+00:00
++++ average-0.15.1/Cargo.toml	2024-07-05T12:51:34.423669+00:00
 @@ -75,11 +75,11 @@
  default-features = false
  

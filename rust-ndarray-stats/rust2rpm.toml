@@ -1,5 +1,9 @@
 [package]
 summary = "Statistical routines for ArrayBase"
+cargo-toml-patch-comments = [
+    "- Bump approx dependency",
+    "  https://github.com/rust-ndarray/ndarray-stats/issues/96",
+]
 
 [requires]
 build = [
@@ -11,14 +15,6 @@ post = [
     "# Do not depend on criterion; it is needed only for benchmarks.",
     "tomcli set Cargo.toml del dev-dependencies.criterion",
 ]
-
-[[package.extra-patches]]
-comments = [
-    "https://github.com/rust-ndarray/ndarray-stats/issues/96",
-    "Bump approx dependency",
-]
-file = "rust-ndarray-stats-0.5.1-Bump_approx_dependency.diff"
-number = 10
 
 [tests]
 skip = [
