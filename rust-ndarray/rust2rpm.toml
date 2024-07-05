@@ -5,6 +5,17 @@ cargo-toml-patch-comments = [
 ]
 
 [features]
+enable = [
+    "default",
+    "serde",
+    "test",
+    "rayon",
+    "matrixmultiply-threading",
+]
 hide = [
+    "blas",
+    "cblas-sys",
     "docs",
+    "serde-1",
+    "approx-0_5",
 ]

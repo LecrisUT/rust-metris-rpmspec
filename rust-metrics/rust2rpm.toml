@@ -1,3 +1,6 @@
+[features]
+enable-all = true
+
 [requires]
 build = [
     "tomcli",

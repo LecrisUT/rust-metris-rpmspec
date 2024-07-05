@@ -16,6 +16,8 @@ Source:         %{crates_source}
 Patch:          quanta-fix-metadata-auto.diff
 # Manually created patch for downstream crate metadata changes
 # * - Bump average dependency
+# * - Bump prost-types dependency
+# * - Remove flaky_tests from default feature
 Patch:          quanta-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
@@ -97,18 +99,18 @@ use the "prost-types" feature of the "%{crate}" crate.
 tomcli set Cargo.toml del dev-dependencies.criterion
 
 %generate_buildrequires
-%cargo_generate_buildrequires
+%cargo_generate_buildrequires -f default,prost
 
 %build
-%cargo_build
+%cargo_build -f default,prost
 
 %install
-%cargo_install
+%cargo_install -f default,prost
 
 %if %{with check}
 %check
-# * Flaky test
-%cargo_test -- -- --skip instant::tests::test_recent
+# * More flaky tests
+%cargo_test -f default,prost -- -- --skip instant::tests::test_recent
 %endif
 
 %changelog

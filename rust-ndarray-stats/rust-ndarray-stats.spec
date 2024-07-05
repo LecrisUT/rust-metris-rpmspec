@@ -61,18 +61,18 @@ use the "default" feature of the "%{crate}" crate.
 tomcli set Cargo.toml del dev-dependencies.criterion
 
 %generate_buildrequires
-%cargo_generate_buildrequires
+%cargo_generate_buildrequires -a
 
 %build
-%cargo_build
+%cargo_build -a
 
 %install
-%cargo_install
+%cargo_install -a
 
 %if %{with check}
 %check
 # * Probably using debug_assert!
-%cargo_test -- -- --skip entropy::tests::test_cross_entropy_with_noisy_negative_qs --skip entropy::tests::test_kl_with_noisy_negative_qs
+%cargo_test -a -- -- --skip entropy::tests::test_cross_entropy_with_noisy_negative_qs --skip entropy::tests::test_kl_with_noisy_negative_qs
 %endif
 
 %changelog

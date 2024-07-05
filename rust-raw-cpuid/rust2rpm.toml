@@ -7,6 +7,10 @@ cargo-toml-patch-comments = [
 ]
 
 [features]
+enable = [
+    "std",
+    "serialize",
+]
 hide = [
     "cli",
     "display",

@@ -1,3 +1,6 @@
+[features]
+enable-all = true
+
 [package]
 summary = "Statistical routines for ArrayBase"
 cargo-toml-patch-comments = [

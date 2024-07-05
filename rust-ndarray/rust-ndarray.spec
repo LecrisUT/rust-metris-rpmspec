@@ -68,42 +68,6 @@ use the "approx" feature of the "%{crate}" crate.
 %files       -n %{name}+approx-devel
 %ghost %{crate_instdir}/Cargo.toml
 
-%package     -n %{name}+approx-0_5-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+approx-0_5-devel %{_description}
-
-This package contains library source intended for building other packages which
-use the "approx-0_5" feature of the "%{crate}" crate.
-
-%files       -n %{name}+approx-0_5-devel
-%ghost %{crate_instdir}/Cargo.toml
-
-%package     -n %{name}+blas-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+blas-devel %{_description}
-
-This package contains library source intended for building other packages which
-use the "blas" feature of the "%{crate}" crate.
-
-%files       -n %{name}+blas-devel
-%ghost %{crate_instdir}/Cargo.toml
-
-%package     -n %{name}+cblas-sys-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+cblas-sys-devel %{_description}
-
-This package contains library source intended for building other packages which
-use the "cblas-sys" feature of the "%{crate}" crate.
-
-%files       -n %{name}+cblas-sys-devel
-%ghost %{crate_instdir}/Cargo.toml
-
 %package     -n %{name}+libc-devel
 Summary:        %{summary}
 BuildArch:      noarch
@@ -164,18 +128,6 @@ use the "serde" feature of the "%{crate}" crate.
 %files       -n %{name}+serde-devel
 %ghost %{crate_instdir}/Cargo.toml
 
-%package     -n %{name}+serde-1-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+serde-1-devel %{_description}
-
-This package contains library source intended for building other packages which
-use the "serde-1" feature of the "%{crate}" crate.
-
-%files       -n %{name}+serde-1-devel
-%ghost %{crate_instdir}/Cargo.toml
-
 %package     -n %{name}+std-devel
 Summary:        %{summary}
 BuildArch:      noarch
@@ -205,17 +157,17 @@ use the "test" feature of the "%{crate}" crate.
 %cargo_prep
 
 %generate_buildrequires
-%cargo_generate_buildrequires
+%cargo_generate_buildrequires -f default,matrixmultiply-threading,rayon,serde,test
 
 %build
-%cargo_build
+%cargo_build -f default,matrixmultiply-threading,rayon,serde,test
 
 %install
-%cargo_install
+%cargo_install -f default,matrixmultiply-threading,rayon,serde,test
 
 %if %{with check}
 %check
-%cargo_test
+%cargo_test -f default,matrixmultiply-threading,rayon,serde,test
 %endif
 
 %changelog

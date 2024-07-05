@@ -124,17 +124,17 @@ use the "std" feature of the "%{crate}" crate.
 rm -r src/bin
 
 %generate_buildrequires
-%cargo_generate_buildrequires
+%cargo_generate_buildrequires -f serialize,std
 
 %build
-%cargo_build
+%cargo_build -f serialize,std
 
 %install
-%cargo_install
+%cargo_install -f serialize,std
 
 %if %{with check}
 %check
-%cargo_test
+%cargo_test -f serialize,std
 %endif
 
 %changelog

@@ -1,3 +1,9 @@
+[features]
+enable = [
+    "default",
+    "prost",
+]
+
 [requires]
 build = [
     "tomcli",
@@ -12,6 +18,8 @@ post = [
 [package]
 cargo-toml-patch-comments = [
     "- Bump average dependency",
+    "- Bump prost-types dependency",
+    "- Remove flaky_tests from default feature",
 ]
 
 [tests]
@@ -19,5 +27,5 @@ skip = [
     "instant::tests::test_recent",
 ]
 comments = [
-    "Flaky test"
+    "More flaky tests"
 ]
