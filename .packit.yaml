@@ -1,10 +1,10 @@
 packages:
-  rust-metrics:
+  rust-metrics-exporter-prometheus:
     # https://github.com/metrics-rs/metrics
-    paths: [ rust-metrics ]
-    specfile_path: rust-metrics.spec
-    upstream_package_name: metrics
-    downstream_package_name: rust-metrics
+    paths: [ rust-metrics-exporter-prometheus ]
+    specfile_path: rust-metrics-exporter-prometheus.spec
+    upstream_package_name: metrics-exporter-prometheus
+    downstream_package_name: rust-metrics-exporter-prometheus
     actions: &Actions-Package-rust2rpm
       fix-spec-file:
         - sh -c 'rust2rpm ${PACKIT_UPSTREAM_PACKAGE_NAME}'
@@ -13,13 +13,6 @@ packages:
         - sh -c 'echo ${PACKIT_UPSTREAM_PACKAGE_NAME}-${PACKIT_PROJECT_VERSION}.crate'
       get-current-version:
         - sh -c 'rpmspec -q --qf "%{Version}" --srpm ${PACKIT_DOWNSTREAM_PACKAGE_NAME}.spec'
-  rust-metrics-exporter-prometheus:
-    # https://github.com/metrics-rs/metrics
-    paths: [ rust-metrics-exporter-prometheus ]
-    specfile_path: rust-metrics-exporter-prometheus.spec
-    upstream_package_name: metrics-exporter-prometheus
-    downstream_package_name: rust-metrics-exporter-prometheus
-    actions: *Actions-Package-rust2rpm
   rust-metrics-util:
     # https://github.com/metrics-rs/metrics
     paths: [ rust-metrics-util ]
@@ -72,27 +65,6 @@ packages:
     specfile_path: rust-ndarray-rand.spec
     upstream_package_name: ndarray-rand
     downstream_package_name: rust-ndarray-rand
-    actions: *Actions-Package-rust2rpm
-  rust-sketches-ddsketch:
-    # https://github.com/mheffner/rust-sketches-ddsketch
-    paths: [ rust-sketches-ddsketch ]
-    specfile_path: rust-sketches-ddsketch.spec
-    upstream_package_name: sketches-ddsketch
-    downstream_package_name: rust-sketches-ddsketch
-    actions: *Actions-Package-rust2rpm
-  rust-defmac:
-    # https://github.com/bluss/defmac
-    paths: [ rust-defmac ]
-    specfile_path: rust-defmac.spec
-    upstream_package_name: defmac
-    downstream_package_name: rust-defmac
-    actions: *Actions-Package-rust2rpm
-  rust-core_affinity:
-    # https://github.com/Elzair/core_affinity_rs
-    paths: [ rust-core_affinity ]
-    specfile_path: rust-core_affinity.spec
-    upstream_package_name: core_affinity
-    downstream_package_name: rust-core_affinity
     actions: *Actions-Package-rust2rpm
 
   # Waiting to be updated
