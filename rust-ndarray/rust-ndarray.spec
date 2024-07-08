@@ -14,7 +14,7 @@ URL:            https://crates.io/crates/ndarray
 Source:         %{crates_source}
 # Manually created patch for downstream crate metadata changes
 # * - Bump approx dependency
-# *   https://github.com/rust-ndarray/ndarray-stats/issues/96
+# *   https://github.com/rust-ndarray/ndarray/pull/1380
 Patch:          ndarray-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
