@@ -31,13 +31,6 @@ packages:
     upstream_package_name: quanta
     downstream_package_name: rust-quanta
     actions: *Actions-Package-no-rust2rpm
-  rust-average:
-    # https://github.com/vks/average
-    paths: [ rust-average ]
-    specfile_path: rust-average.spec
-    upstream_package_name: average
-    downstream_package_name: rust-average
-    actions: *Actions-Package-no-rust2rpm
   rust-raw-cpuid:
     # https://github.com/gz/rust-cpuid
     paths: [ rust-raw-cpuid ]

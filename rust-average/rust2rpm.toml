@@ -1,8 +1,0 @@
-[features]
-enable-all = true
-
-[package]
-cargo-toml-patch-comments = [
-    "- Relax strict dependency on rayon",
-    "- Bump sketches-ddsketch dependency",
-]
