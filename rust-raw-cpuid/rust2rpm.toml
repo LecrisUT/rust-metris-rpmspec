@@ -5,19 +5,10 @@ cargo-toml-patch-comments = [
     "- Remove clashing binary package",
     "- Remove cli and display features",
 ]
+supported-arches = ["x86_64", "i686"]
 
 [features]
 enable = [
     "std",
     "serialize",
-]
-hide = [
-    "cli",
-    "display",
-]
-
-[scripts.prep]
-post = [
-    "# Remove unused cli files",
-    "rm -r src/bin",
 ]

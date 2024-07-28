@@ -1,18 +1,19 @@
---- raw-cpuid-11.0.2/Cargo.toml	1970-01-01T00:00:01+00:00
-+++ raw-cpuid-11.0.2/Cargo.toml	2024-05-28T18:01:14.469960+00:00
-@@ -32,11 +32,6 @@
+--- raw-cpuid-11.1.0/Cargo.toml	1970-01-01T00:00:01+00:00
++++ raw-cpuid-11.1.0/Cargo.toml	2024-07-28T20:44:37.764571+00:00
+@@ -31,11 +31,7 @@
+ ]
  license = "MIT"
  repository = "https://github.com/gz/rust-cpuid"
- 
+-
 -[[bin]]
 -name = "cpuid"
 -path = "src/bin/cpuid.rs"
 -required-features = ["cli"]
--
++autobins = false
+ 
  [[example]]
  name = "serialize_deserialize"
- path = "examples/serialize_deserialize.rs"
-@@ -44,11 +39,6 @@
+@@ -44,11 +40,6 @@
  
  [dependencies.bitflags]
  version = "2.0"
@@ -24,14 +25,20 @@
  
  [dependencies.serde]
  version = "1.0"
-@@ -63,21 +53,9 @@
- version = "1.0"
- optional = true
+@@ -61,10 +52,6 @@
  
--[dependencies.termimad]
--version = "0.25"
+ [dependencies.serde_json]
+ version = "1.0"
 -optional = true
 -
+-[dependencies.termimad]
+-version = "0.25"
+ optional = true
+ 
+ [dev-dependencies.core_affinity]
+@@ -82,16 +69,6 @@
+ version = "1.0"
+ 
  [features]
 -cli = [
 -    "display",
@@ -43,8 +50,6 @@
 -    "serde_json",
 -    "serialize",
 -]
-+cli = []
-+display = []
  serialize = [
      "serde",
      "serde_derive",

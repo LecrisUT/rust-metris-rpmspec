@@ -7,8 +7,11 @@
 
 %global crate raw-cpuid
 
+# compile and run tests only on supported architectures
+%global supported_arches x86_64 i686
+
 Name:           rust-raw-cpuid
-Version:        11.0.2
+Version:        11.1.0
 Release:        %autorelease
 Summary:        Library to parse the x86 CPUID instruction
 
@@ -120,21 +123,23 @@ use the "std" feature of the "%{crate}" crate.
 %prep
 %autosetup -n %{crate}-%{version} -p1
 %cargo_prep
-# Remove unused cli files
-rm -r src/bin
 
 %generate_buildrequires
 %cargo_generate_buildrequires -f serialize,std
 
 %build
+%ifarch %{supported_arches}
 %cargo_build -f serialize,std
+%endif
 
 %install
 %cargo_install -f serialize,std
 
 %if %{with check}
+%ifarch %{supported_arches}
 %check
 %cargo_test -f serialize,std
+%endif
 %endif
 
 %changelog
