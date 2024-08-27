@@ -31,13 +31,6 @@ packages:
     upstream_package_name: quanta
     downstream_package_name: rust-quanta
     actions: *Actions-Package-no-rust2rpm
-  rust-raw-cpuid:
-    # https://github.com/gz/rust-cpuid
-    paths: [ rust-raw-cpuid ]
-    specfile_path: rust-raw-cpuid.spec
-    upstream_package_name: raw-cpuid
-    downstream_package_name: rust-raw-cpuid
-    actions: *Actions-Package-no-rust2rpm
   rust-ndarray:
     # https://github.com/rust-ndarray/ndarray
     paths: [ rust-ndarray ]
