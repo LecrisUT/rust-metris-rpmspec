@@ -5,16 +5,17 @@
 %global crate ndarray
 
 Name:           rust-ndarray
-Version:        0.15.6
+Version:        0.16.1
 Release:        %autorelease
 Summary:        N-dimensional array for general elements and for numerics
 
 License:        MIT OR Apache-2.0
 URL:            https://crates.io/crates/ndarray
 Source:         %{crates_source}
+# Automatically generated patch to strip dependencies and normalize metadata
+Patch:          ndarray-fix-metadata-auto.diff
 # Manually created patch for downstream crate metadata changes
-# * - Bump approx dependency
-# *   https://github.com/rust-ndarray/ndarray/pull/1380
+# * Remove oper test: Uses workspace-only crate ndarray-gen
 Patch:          ndarray-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
@@ -68,18 +69,6 @@ use the "approx" feature of the "%{crate}" crate.
 %files       -n %{name}+approx-devel
 %ghost %{crate_instdir}/Cargo.toml
 
-%package     -n %{name}+libc-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+libc-devel %{_description}
-
-This package contains library source intended for building other packages which
-use the "libc" feature of the "%{crate}" crate.
-
-%files       -n %{name}+libc-devel
-%ghost %{crate_instdir}/Cargo.toml
-
 %package     -n %{name}+matrixmultiply-threading-devel
 Summary:        %{summary}
 BuildArch:      noarch
@@ -92,6 +81,18 @@ use the "matrixmultiply-threading" feature of the "%{crate}" crate.
 %files       -n %{name}+matrixmultiply-threading-devel
 %ghost %{crate_instdir}/Cargo.toml
 
+%package     -n %{name}+portable-atomic-critical-section-devel
+Summary:        %{summary}
+BuildArch:      noarch
+
+%description -n %{name}+portable-atomic-critical-section-devel %{_description}
+
+This package contains library source intended for building other packages which
+use the "portable-atomic-critical-section" feature of the "%{crate}" crate.
+
+%files       -n %{name}+portable-atomic-critical-section-devel
+%ghost %{crate_instdir}/Cargo.toml
+
 %package     -n %{name}+rayon-devel
 Summary:        %{summary}
 BuildArch:      noarch
@@ -102,18 +103,6 @@ This package contains library source intended for building other packages which
 use the "rayon" feature of the "%{crate}" crate.
 
 %files       -n %{name}+rayon-devel
-%ghost %{crate_instdir}/Cargo.toml
-
-%package     -n %{name}+rayon_-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+rayon_-devel %{_description}
-
-This package contains library source intended for building other packages which
-use the "rayon_" feature of the "%{crate}" crate.
-
-%files       -n %{name}+rayon_-devel
 %ghost %{crate_instdir}/Cargo.toml
 
 %package     -n %{name}+serde-devel
@@ -157,17 +146,17 @@ use the "test" feature of the "%{crate}" crate.
 %cargo_prep
 
 %generate_buildrequires
-%cargo_generate_buildrequires -f default,matrixmultiply-threading,rayon,serde,test
+%cargo_generate_buildrequires -f default,matrixmultiply-threading,portable-atomic-critical-section,rayon,serde,std,test
 
 %build
-%cargo_build -f default,matrixmultiply-threading,rayon,serde,test
+%cargo_build -f default,matrixmultiply-threading,portable-atomic-critical-section,rayon,serde,std,test
 
 %install
-%cargo_install -f default,matrixmultiply-threading,rayon,serde,test
+%cargo_install -f default,matrixmultiply-threading,portable-atomic-critical-section,rayon,serde,std,test
 
 %if %{with check}
 %check
-%cargo_test -f default,matrixmultiply-threading,rayon,serde,test
+%cargo_test -f default,matrixmultiply-threading,portable-atomic-critical-section,rayon,serde,std,test
 %endif
 
 %changelog

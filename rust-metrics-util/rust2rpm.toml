@@ -16,5 +16,6 @@ post = [
 cargo-toml-patch-comments = [
     "- Relax predicates dependencies",
     "- Bump sketches-ddsketch dependency",
+    "- Bump ndarray dependency",
 ]
 

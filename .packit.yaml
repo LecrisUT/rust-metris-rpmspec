@@ -59,7 +59,7 @@ packages:
     specfile_path: rust-ordered-float.spec
     upstream_package_name: ordered-float
     downstream_package_name: rust-ordered-float
-    actions: *Actions-Package-rust2rpm
+    actions: *Actions-Package-no-rust2rpm
 
 srpm_build_deps:
   - rust2rpm

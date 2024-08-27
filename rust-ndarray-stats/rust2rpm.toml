@@ -4,8 +4,7 @@ enable-all = true
 [package]
 summary = "Statistical routines for ArrayBase"
 cargo-toml-patch-comments = [
-    "- Bump approx dependency",
-    "  https://github.com/rust-ndarray/ndarray-stats/issues/96",
+    "Relax indexmap requirement",
 ]
 
 [requires]

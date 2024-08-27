@@ -1,7 +1,6 @@
 [package]
 cargo-toml-patch-comments = [
-    "- Bump approx dependency",
-    "  https://github.com/rust-ndarray/ndarray/pull/1380",
+    "Remove oper test: Uses workspace-only crate ndarray-gen",
 ]
 
 [features]
@@ -9,13 +8,13 @@ enable = [
     "default",
     "serde",
     "test",
+    "std",
     "rayon",
     "matrixmultiply-threading",
+    "portable-atomic-critical-section",
 ]
 hide = [
     "blas",
-    "cblas-sys",
     "docs",
     "serde-1",
-    "approx-0_5",
 ]

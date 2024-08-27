@@ -5,7 +5,7 @@
 %global crate ndarray-rand
 
 Name:           rust-ndarray-rand
-Version:        0.14.0
+Version:        0.15.0
 Release:        %autorelease
 Summary:        Constructors for randomized arrays. rand integration for ndarray
 

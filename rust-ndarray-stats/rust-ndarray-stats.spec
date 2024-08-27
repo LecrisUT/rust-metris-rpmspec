@@ -5,7 +5,7 @@
 %global crate ndarray-stats
 
 Name:           rust-ndarray-stats
-Version:        0.5.1
+Version:        0.6.0
 Release:        %autorelease
 Summary:        Statistical routines for ArrayBase
 
@@ -14,8 +14,7 @@ License:        MIT OR Apache-2.0
 URL:            https://crates.io/crates/ndarray-stats
 Source:         %{crates_source}
 # Manually created patch for downstream crate metadata changes
-# * - Bump approx dependency
-# *   https://github.com/rust-ndarray/ndarray-stats/issues/96
+# * Relax indexmap requirement
 Patch:          ndarray-stats-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24

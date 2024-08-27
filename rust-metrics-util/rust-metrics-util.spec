@@ -15,6 +15,7 @@ Source:         %{crates_source}
 # Manually created patch for downstream crate metadata changes
 # * - Relax predicates dependencies
 # * - Bump sketches-ddsketch dependency
+# * - Bump ndarray dependency
 Patch:          metrics-util-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
