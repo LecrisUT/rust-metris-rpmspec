@@ -13,9 +13,6 @@ Summary:        Statistical routines for ArrayBase
 License:        MIT OR Apache-2.0
 URL:            https://crates.io/crates/ndarray-stats
 Source:         %{crates_source}
-# Manually created patch for downstream crate metadata changes
-# * Relax indexmap requirement
-Patch:          ndarray-stats-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
 BuildRequires:  tomcli
@@ -60,18 +57,19 @@ use the "default" feature of the "%{crate}" crate.
 tomcli set Cargo.toml del dev-dependencies.criterion
 
 %generate_buildrequires
-%cargo_generate_buildrequires -a
+%cargo_generate_buildrequires
 
 %build
-%cargo_build -a
+%cargo_build
 
 %install
-%cargo_install -a
+%cargo_install
 
 %if %{with check}
 %check
-# * Probably using debug_assert!
-%cargo_test -a -- -- --skip entropy::tests::test_cross_entropy_with_noisy_negative_qs --skip entropy::tests::test_kl_with_noisy_negative_qs
+# * Tests only pass in debug profile because they rely on `debug_assert!` in
+#   `noisy_float`
+%cargo_test -- -- --skip entropy::tests::test_cross_entropy_with_noisy_negative_qs --skip entropy::tests::test_kl_with_noisy_negative_qs
 %endif
 
 %changelog

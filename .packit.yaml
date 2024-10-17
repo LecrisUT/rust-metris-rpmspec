@@ -30,7 +30,7 @@ packages:
     specfile_path: rust-ndarray-stats.spec
     upstream_package_name: ndarray-stats
     downstream_package_name: rust-ndarray-stats
-    actions: *Actions-Package-no-rust2rpm
+    actions: *Actions-Package-rust2rpm
 
 srpm_build_deps:
   - rust2rpm

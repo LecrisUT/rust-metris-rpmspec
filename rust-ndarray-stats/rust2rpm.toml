@@ -1,11 +1,5 @@
-[features]
-enable-all = true
-
 [package]
 summary = "Statistical routines for ArrayBase"
-cargo-toml-patch-comments = [
-    "Relax indexmap requirement",
-]
 
 [requires]
 build = [
@@ -24,5 +18,5 @@ skip = [
     "entropy::tests::test_kl_with_noisy_negative_qs",
 ]
 comments = [
-    "Probably using debug_assert!"
+    "Tests only pass in debug profile because they rely on `debug_assert!` in `noisy_float`",
 ]
