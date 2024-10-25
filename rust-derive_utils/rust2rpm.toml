@@ -1,0 +1,11 @@
+[requires]
+build = [
+    "tomcli",
+]
+
+[scripts.prep]
+post = [
+    "# Cannot compile tests yet because they are using a fork of trybuild",
+    "# https://github.com/taiki-e/derive_utils/issues/48",
+    "tomcli set Cargo.toml arrays delitem --key path test tests/compiletest.rs",
+]

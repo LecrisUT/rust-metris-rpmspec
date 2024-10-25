@@ -1,0 +1,36 @@
+--- auto_enums-0.8.6/Cargo.toml	1970-01-01T00:00:01+00:00
++++ auto_enums-0.8.6/Cargo.toml	2024-10-25T15:34:53.663474+00:00
+@@ -92,10 +92,6 @@
+ ]
+ default-features = false
+ 
+-[dev-dependencies.futures01_crate]
+-version = "0.1"
+-package = "futures"
+-
+ [dev-dependencies.futures03_crate]
+ version = "0.3"
+ features = [
+@@ -121,22 +117,6 @@
+ [dev-dependencies.serde_crate]
+ version = "1"
+ package = "serde"
+-
+-[dev-dependencies.tokio01_crate]
+-version = "0.1"
+-features = ["io"]
+-default-features = false
+-package = "tokio"
+-
+-[dev-dependencies.tokio02_crate]
+-version = "0.2"
+-default-features = false
+-package = "tokio"
+-
+-[dev-dependencies.tokio03_crate]
+-version = "0.3"
+-default-features = false
+-package = "tokio"
+ 
+ [dev-dependencies.tokio1_crate]
+ version = "1"

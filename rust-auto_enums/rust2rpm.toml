@@ -1,0 +1,26 @@
+[features]
+hide = [
+    "futures01",
+    "tokio03",
+    "tokio02",
+    "tokio01",
+]
+
+[package]
+cargo-toml-patch-comments = [
+    "- remove older futures and tokio dependencies",
+]
+
+[requires]
+build = [
+    "tomcli",
+]
+
+[scripts.prep]
+post = [
+    "# Cannot compile tests yet because they are using multiple forked projects",
+    "# Tracker is of a similar issue by the same author",
+    "# https://github.com/taiki-e/derive_utils/issues/48",
+    "tomcli set Cargo.toml arrays delitem --key path test tests/compiletest.rs",
+    "tomcli set Cargo.toml arrays delitem --key path test tests/expandtest.rs",
+]
