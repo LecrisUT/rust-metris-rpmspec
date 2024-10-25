@@ -12,6 +12,9 @@ Summary:        Metrics-compatible exporter for sending metrics to Prometheus
 License:        MIT
 URL:            https://crates.io/crates/metrics-exporter-prometheus
 Source:         %{crates_source}
+# Manually created patch for downstream crate metadata changes
+# * - Switch rustls default provider
+Patch:          metrics-exporter-prometheus-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
 

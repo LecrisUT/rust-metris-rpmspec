@@ -5,9 +5,8 @@ packages:
     specfile_path: rust-metrics-exporter-prometheus.spec
     upstream_package_name: metrics-exporter-prometheus
     downstream_package_name: rust-metrics-exporter-prometheus
-    actions: &Actions-Package-rust2rpm
-      fix-spec-file:
-        - sh -c 'rust2rpm ${PACKIT_UPSTREAM_PACKAGE_NAME}'
+    actions: &Actions-Package-no-rust2rpm
+      fix-spec-file: []
       create-archive:
         - sh -c 'spectool -g -s0 ${PACKIT_DOWNSTREAM_PACKAGE_NAME}.spec'
         - sh -c 'echo ${PACKIT_UPSTREAM_PACKAGE_NAME}-${PACKIT_PROJECT_VERSION}.crate'
@@ -19,16 +18,17 @@ packages:
     specfile_path: rust-metrics.spec
     upstream_package_name: metrics
     downstream_package_name: rust-metrics
-    actions: *Actions-Package-rust2rpm
+    actions: &Actions-Package-rust2rpm
+      <<: *Actions-Package-no-rust2rpm
+      fix-spec-file:
+        - sh -c 'rust2rpm ${PACKIT_UPSTREAM_PACKAGE_NAME}'
   rust-metrics-util:
     # https://github.com/metrics-rs/metrics
     paths: [ rust-metrics-util ]
     specfile_path: rust-metrics-util.spec
     upstream_package_name: metrics-util
     downstream_package_name: rust-metrics-util
-    actions: &Actions-Package-no-rust2rpm
-      <<: *Actions-Package-rust2rpm
-      fix-spec-file: []
+    actions: *Actions-Package-no-rust2rpm
   rust-mockall:
     # Additional updates
     paths: [ rust-mockall ]
