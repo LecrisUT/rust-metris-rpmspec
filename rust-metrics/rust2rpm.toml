@@ -1,6 +1,3 @@
-[features]
-enable-all = true
-
 [requires]
 build = [
     "tomcli",
@@ -10,10 +7,5 @@ build = [
 post = [
     "# Do not depend on criterion; it is needed only for benchmarks.",
     "tomcli set Cargo.toml del dev-dependencies.criterion",
-]
-
-[package]
-cargo-toml-patch-comments = [
-    "- Relax predicates dependencies",
 ]
 

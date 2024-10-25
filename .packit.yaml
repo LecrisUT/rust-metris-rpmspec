@@ -13,6 +13,13 @@ packages:
         - sh -c 'echo ${PACKIT_UPSTREAM_PACKAGE_NAME}-${PACKIT_PROJECT_VERSION}.crate'
       get-current-version:
         - sh -c 'rpmspec -q --qf "%{Version}" --srpm ${PACKIT_DOWNSTREAM_PACKAGE_NAME}.spec'
+  rust-metrics:
+    # Updating metrics
+    paths: [ rust-metrics ]
+    specfile_path: rust-metrics.spec
+    upstream_package_name: metrics
+    downstream_package_name: rust-metrics
+    actions: *Actions-Package-rust2rpm
   rust-metrics-util:
     # https://github.com/metrics-rs/metrics
     paths: [ rust-metrics-util ]

@@ -5,7 +5,7 @@
 %global crate metrics-exporter-prometheus
 
 Name:           rust-metrics-exporter-prometheus
-Version:        0.15.1
+Version:        0.16.0
 Release:        %autorelease
 Summary:        Metrics-compatible exporter for sending metrics to Prometheus
 
@@ -189,6 +189,18 @@ This package contains library source intended for building other packages which
 use the "tracing" feature of the "%{crate}" crate.
 
 %files       -n %{name}+tracing-devel
+%ghost %{crate_instdir}/Cargo.toml
+
+%package     -n %{name}+uds-listener-devel
+Summary:        %{summary}
+BuildArch:      noarch
+
+%description -n %{name}+uds-listener-devel %{_description}
+
+This package contains library source intended for building other packages which
+use the "uds-listener" feature of the "%{crate}" crate.
+
+%files       -n %{name}+uds-listener-devel
 %ghost %{crate_instdir}/Cargo.toml
 
 %prep

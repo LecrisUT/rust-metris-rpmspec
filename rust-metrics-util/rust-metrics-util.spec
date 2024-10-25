@@ -5,7 +5,7 @@
 %global crate metrics-util
 
 Name:           rust-metrics-util
-Version:        0.17.0
+Version:        0.18.0
 Release:        %autorelease
 Summary:        Helper types/functions used by the metrics ecosystem
 
@@ -14,8 +14,6 @@ URL:            https://crates.io/crates/metrics-util
 Source:         %{crates_source}
 # Manually created patch for downstream crate metadata changes
 # * - Relax predicates dependencies
-# * - Bump sketches-ddsketch dependency
-# * - Bump ndarray dependency
 Patch:          metrics-util-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
@@ -183,18 +181,6 @@ This package contains library source intended for building other packages which
 use the "layers" feature of the "%{crate}" crate.
 
 %files       -n %{name}+layers-devel
-%ghost %{crate_instdir}/Cargo.toml
-
-%package     -n %{name}+num_cpus-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+num_cpus-devel %{_description}
-
-This package contains library source intended for building other packages which
-use the "num_cpus" feature of the "%{crate}" crate.
-
-%files       -n %{name}+num_cpus-devel
 %ghost %{crate_instdir}/Cargo.toml
 
 %package     -n %{name}+ordered-float-devel
