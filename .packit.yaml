@@ -23,15 +23,6 @@ packages:
       <<: *Actions-Package-rust2rpm
       fix-spec-file: []
 
-  ## Dependencies
-  rust-ndarray-stats:
-    # https://github.com/rust-ndarray/ndarray-stats
-    paths: [ rust-ndarray-stats ]
-    specfile_path: rust-ndarray-stats.spec
-    upstream_package_name: ndarray-stats
-    downstream_package_name: rust-ndarray-stats
-    actions: *Actions-Package-rust2rpm
-
 srpm_build_deps:
   - rust2rpm
 
