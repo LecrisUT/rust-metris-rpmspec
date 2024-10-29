@@ -2,21 +2,21 @@
 %bcond_without check
 %global debug_package %{nil}
 
-%global crate mockall
+%global crate mockall_derive
 
-Name:           rust-mockall
+Name:           rust-mockall_derive
 Version:        0.13.0
 Release:        %autorelease
-Summary:        Powerful mock object library for Rust
+Summary:        Procedural macros for Mockall
 
 License:        MIT OR Apache-2.0
-URL:            https://crates.io/crates/mockall
+URL:            https://crates.io/crates/mockall_derive
 Source:         %{crates_source}
 
 BuildRequires:  cargo-rpm-macros >= 24
 
 %global _description %{expand:
-A powerful mock object library for Rust.}
+Procedural macros for Mockall.}
 
 %description %{_description}
 

@@ -1,4 +1,4 @@
 [features]
 hide = [
-    "nightly",
+    "nightly_derive",
 ]

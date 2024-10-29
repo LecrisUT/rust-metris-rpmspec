@@ -36,6 +36,13 @@ packages:
     upstream_package_name: mockall
     downstream_package_name: rust-mockall
     actions: *Actions-Package-rust2rpm
+  rust-mockall_derive:
+    # Additional updates
+    paths: [ rust-mockall_derive ]
+    specfile_path: rust-mockall_derive.spec
+    upstream_package_name: mockall_derive
+    downstream_package_name: rust-mockall_derive
+    actions: *Actions-Package-rust2rpm
   rust-auto_enums:
     # New package
     paths: [ rust-auto_enums ]
