@@ -1,10 +1,5 @@
 [features]
-hide = [
-    "futures01",
-    "tokio03",
-    "tokio02",
-    "tokio01",
-]
+enable-all = true
 
 [package]
 cargo-toml-patch-comments = [
