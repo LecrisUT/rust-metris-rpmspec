@@ -15,5 +15,6 @@ post = [
 [package]
 cargo-toml-patch-comments = [
     "- Relax predicates dependencies",
+    "- Bump mockall dependency",
 ]
 
