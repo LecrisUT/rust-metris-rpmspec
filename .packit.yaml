@@ -1,3 +1,22 @@
+_:
+  actions:
+    rust2rpm-default: &actions-rust2rpm-default
+      get-current-version:
+        # Get the current crate version in the spec file
+        - sh -c 'rpmspec -q --qf "%{Version}" --srpm ${PACKIT_DOWNSTREAM_PACKAGE_NAME}.spec'
+      create-archive:
+        # Technically not necessary, but might as well define a sensible one
+        - sh -c 'spectool -g -s0 ${PACKIT_DOWNSTREAM_PACKAGE_NAME}.spec'
+        - sh -c 'echo ${PACKIT_UPSTREAM_PACKAGE_NAME}-${PACKIT_PROJECT_VERSION}.crate'
+      fix-spec-file:
+        # Run rust2rpm and make sure we use the same version
+        - sh -c 'rust2rpm @${PACKIT_PROJECT_VERSION}'
+    rust2rpm-with-patch: &actions-rust2rpm-with-patch
+      <<: *actions-rust2rpm-default
+      fix-spec-file:
+        # same as default rust2rpm but reuse the patch files
+        - sh -c 'rust2rpm --reuse-patch @${PACKIT_PROJECT_VERSION}'
+
 packages:
   rust-metrics-exporter-prometheus:
     # https://github.com/metrics-rs/metrics
@@ -5,30 +24,21 @@ packages:
     specfile_path: rust-metrics-exporter-prometheus.spec
     upstream_package_name: metrics-exporter-prometheus
     downstream_package_name: rust-metrics-exporter-prometheus
-    actions: &Actions-Package-no-rust2rpm
-      fix-spec-file: []
-      create-archive:
-        - sh -c 'spectool -g -s0 ${PACKIT_DOWNSTREAM_PACKAGE_NAME}.spec'
-        - sh -c 'echo ${PACKIT_UPSTREAM_PACKAGE_NAME}-${PACKIT_PROJECT_VERSION}.crate'
-      get-current-version:
-        - sh -c 'rpmspec -q --qf "%{Version}" --srpm ${PACKIT_DOWNSTREAM_PACKAGE_NAME}.spec'
+    actions: *actions-rust2rpm-with-patch
   rust-metrics:
     # Updating metrics
     paths: [ rust-metrics ]
     specfile_path: rust-metrics.spec
     upstream_package_name: metrics
     downstream_package_name: rust-metrics
-    actions: &Actions-Package-rust2rpm
-      <<: *Actions-Package-no-rust2rpm
-      fix-spec-file:
-        - sh -c 'rust2rpm ${PACKIT_UPSTREAM_PACKAGE_NAME}'
+    actions: *actions-rust2rpm-default
   rust-metrics-util:
     # https://github.com/metrics-rs/metrics
     paths: [ rust-metrics-util ]
     specfile_path: rust-metrics-util.spec
     upstream_package_name: metrics-util
     downstream_package_name: rust-metrics-util
-    actions: *Actions-Package-no-rust2rpm
+    actions: *actions-rust2rpm-with-patch
 
 srpm_build_deps:
   - rust2rpm
