@@ -29,20 +29,6 @@ packages:
     upstream_package_name: metrics-util
     downstream_package_name: rust-metrics-util
     actions: *Actions-Package-no-rust2rpm
-  rust-mockall:
-    # Additional updates
-    paths: [ rust-mockall ]
-    specfile_path: rust-mockall.spec
-    upstream_package_name: mockall
-    downstream_package_name: rust-mockall
-    actions: *Actions-Package-rust2rpm
-  rust-mockall_derive:
-    # Additional updates
-    paths: [ rust-mockall_derive ]
-    specfile_path: rust-mockall_derive.spec
-    upstream_package_name: mockall_derive
-    downstream_package_name: rust-mockall_derive
-    actions: *Actions-Package-rust2rpm
 
 srpm_build_deps:
   - rust2rpm

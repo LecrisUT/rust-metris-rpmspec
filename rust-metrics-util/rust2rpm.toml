@@ -15,6 +15,7 @@ post = [
 [package]
 cargo-toml-patch-comments = [
     "- Relax predicates dependencies",
-    "- Bump mockall dependency",
+    "- Widen mockall dependency",
+    "  (see https://github.com/metrics-rs/metrics/pull/499)",
 ]
 
