@@ -43,20 +43,6 @@ packages:
     upstream_package_name: mockall_derive
     downstream_package_name: rust-mockall_derive
     actions: *Actions-Package-rust2rpm
-  rust-auto_enums:
-    # New package
-    paths: [ rust-auto_enums ]
-    specfile_path: rust-auto_enums.spec
-    upstream_package_name: auto_enums
-    downstream_package_name: rust-auto_enums
-    actions: *Actions-Package-no-rust2rpm
-  rust-derive_utils:
-    # New package
-    paths: [ rust-derive_utils ]
-    specfile_path: rust-derive_utils.spec
-    upstream_package_name: derive_utils
-    downstream_package_name: rust-derive_utils
-    actions: *Actions-Package-rust2rpm
 
 srpm_build_deps:
   - rust2rpm
