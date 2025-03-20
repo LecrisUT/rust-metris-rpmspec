@@ -31,7 +31,7 @@ packages:
     specfile_path: rust-metrics-util.spec
     upstream_package_name: metrics-util
     downstream_package_name: rust-metrics-util
-    actions: *actions-rust2rpm-with-patch
+    actions: *actions-rust2rpm-default
 
 srpm_build_deps:
   - rust2rpm
