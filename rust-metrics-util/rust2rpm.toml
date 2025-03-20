@@ -10,12 +10,11 @@ build = [
 post = [
     "# Do not depend on criterion; it is needed only for benchmarks.",
     "tomcli set Cargo.toml del dev-dependencies.criterion",
+    "# Relax predicates dependencies",
+    "# https://github.com/metrics-rs/metrics/pull/566",
+    "tomcli set Cargo.toml replace dev-dependencies.predicates.version '=3.1.0' '3.1.0'",
+    "tomcli set Cargo.toml replace dev-dependencies.predicates-core.version '=1.0.6' '1.0.6'",
+    "tomcli set Cargo.toml replace dev-dependencies.predicates-tree.version '=1.0.9' '1.0.9'",
+    "# Widen mockall dependency",
+    "tomcli set Cargo.toml replace dev-dependencies.mockall.version '0.12' '>=0.11, <0.14'",
 ]
-
-[package]
-cargo-toml-patch-comments = [
-    "- Relax predicates dependencies",
-    "- Widen mockall dependency",
-    "  (see https://github.com/metrics-rs/metrics/pull/499)",
-]
-

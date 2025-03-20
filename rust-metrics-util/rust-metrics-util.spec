@@ -5,18 +5,13 @@
 %global crate metrics-util
 
 Name:           rust-metrics-util
-Version:        0.18.0
+Version:        0.19.0
 Release:        %autorelease
 Summary:        Helper types/functions used by the metrics ecosystem
 
 License:        MIT
 URL:            https://crates.io/crates/metrics-util
 Source:         %{crates_source}
-# Manually created patch for downstream crate metadata changes
-# * - Relax predicates dependencies
-# * - Widen mockall dependency
-# *   (see https://github.com/metrics-rs/metrics/pull/499)
-Patch:          metrics-util-fix-metadata.diff
 
 BuildRequires:  cargo-rpm-macros >= 24
 BuildRequires:  tomcli
@@ -111,18 +106,6 @@ This package contains library source intended for building other packages which
 use the "debugging" feature of the "%{crate}" crate.
 
 %files       -n %{name}+debugging-devel
-%ghost %{crate_instdir}/Cargo.toml
-
-%package     -n %{name}+handles-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+handles-devel %{_description}
-
-This package contains library source intended for building other packages which
-use the "handles" feature of the "%{crate}" crate.
-
-%files       -n %{name}+handles-devel
 %ghost %{crate_instdir}/Cargo.toml
 
 %package     -n %{name}+hashbrown-devel
@@ -221,6 +204,30 @@ use the "radix_trie" feature of the "%{crate}" crate.
 %files       -n %{name}+radix_trie-devel
 %ghost %{crate_instdir}/Cargo.toml
 
+%package     -n %{name}+rand-devel
+Summary:        %{summary}
+BuildArch:      noarch
+
+%description -n %{name}+rand-devel %{_description}
+
+This package contains library source intended for building other packages which
+use the "rand" feature of the "%{crate}" crate.
+
+%files       -n %{name}+rand-devel
+%ghost %{crate_instdir}/Cargo.toml
+
+%package     -n %{name}+rand_xoshiro-devel
+Summary:        %{summary}
+BuildArch:      noarch
+
+%description -n %{name}+rand_xoshiro-devel %{_description}
+
+This package contains library source intended for building other packages which
+use the "rand_xoshiro" feature of the "%{crate}" crate.
+
+%files       -n %{name}+rand_xoshiro-devel
+%ghost %{crate_instdir}/Cargo.toml
+
 %package     -n %{name}+recency-devel
 Summary:        %{summary}
 BuildArch:      noarch
@@ -257,16 +264,16 @@ use the "sketches-ddsketch" feature of the "%{crate}" crate.
 %files       -n %{name}+sketches-ddsketch-devel
 %ghost %{crate_instdir}/Cargo.toml
 
-%package     -n %{name}+summary-devel
+%package     -n %{name}+storage-devel
 Summary:        %{summary}
 BuildArch:      noarch
 
-%description -n %{name}+summary-devel %{_description}
+%description -n %{name}+storage-devel %{_description}
 
 This package contains library source intended for building other packages which
-use the "summary" feature of the "%{crate}" crate.
+use the "storage" feature of the "%{crate}" crate.
 
-%files       -n %{name}+summary-devel
+%files       -n %{name}+storage-devel
 %ghost %{crate_instdir}/Cargo.toml
 
 %prep
@@ -274,6 +281,13 @@ use the "summary" feature of the "%{crate}" crate.
 %cargo_prep
 # Do not depend on criterion; it is needed only for benchmarks.
 tomcli set Cargo.toml del dev-dependencies.criterion
+# Relax predicates dependencies
+# https://github.com/metrics-rs/metrics/pull/566
+tomcli set Cargo.toml replace dev-dependencies.predicates.version '=3.1.0' '3.1.0'
+tomcli set Cargo.toml replace dev-dependencies.predicates-core.version '=1.0.6' '1.0.6'
+tomcli set Cargo.toml replace dev-dependencies.predicates-tree.version '=1.0.9' '1.0.9'
+# Widen mockall dependency
+tomcli set Cargo.toml replace dev-dependencies.mockall.version '0.12' '>=0.11, <0.14'
 
 %generate_buildrequires
 %cargo_generate_buildrequires -a
